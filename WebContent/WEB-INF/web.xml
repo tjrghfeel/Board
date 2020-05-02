@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+		<servlet-name>noName</servlet-name>
+		<servlet-class>board.NoName</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>noName</servlet-name>
+		<url-pattern>/noName</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>noName2</servlet-name>
+		<servlet-class>board.NoName2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>noName2</servlet-name>
+		<url-pattern>/noName2</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>signUpH</servlet-name>
+		<servlet-class>board.SignUpH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signUpH</servlet-name>
+		<url-pattern>/signUpH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>loginH</servlet-name>
+		<servlet-class>board.LoginH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginH</servlet-name>
+		<url-pattern>/loginH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>showingBoardH</servlet-name>
+		<servlet-class>board.ShowingBoardH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>showingBoardH</servlet-name>
+		<url-pattern>/showingBoardH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>writePostH</servlet-name>
+		<servlet-class>board.WritePostH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writePostH</servlet-name>
+		<url-pattern>/writePostH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>showingPostH</servlet-name>
+		<servlet-class>board.ShowingPostH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>showingPostH</servlet-name>
+		<url-pattern>/showingPostH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>writeCommentH</servlet-name>
+		<servlet-class>board.WriteCommentH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writeCommentH</servlet-name>
+		<url-pattern>/writeCommentH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>scoreH</servlet-name>
+		<servlet-class>board.ScoreH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>scoreH</servlet-name>
+		<url-pattern>/scoreH</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

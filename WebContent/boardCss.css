@@ -1,0 +1,314 @@
+@charset "UTF-8";
+body{
+	width:100vw;
+}
+/*로그인 페이지*/
+.mainTitle{
+	text-align:center;
+	position:relative;
+	top:170px;
+	font-size:2em;
+}
+.login{
+	background-color:#323C73;
+	color:white !important;
+}
+.loginForm{
+	position:relative;
+	top:220px;
+	text-align:center;/*상속됨*/
+}
+.loginForm form{
+	display:inline;/*상속안됨*/
+}
+.loginForm input{
+	margin:1vw;
+}
+.loginForm input[type="submit"]{
+	background-color:white;
+	color:#323C73;
+	border-radius:2px;
+	border:none;
+	padding:0.3vw;
+}
+.loginForm a{
+	background-color:white;
+	color:#323C73;
+	border-radius:2px;
+	border:none;
+	padding:0.3vw;
+	text-decoration:none;
+}
+
+/*게시글 리스트 페이지*/
+.stateBar{
+	width:100vw;	
+	height:4vh;
+	background-color:#323C73;
+	color:white;
+}
+.stateBar a{
+	color:white;
+	text-decoration:none;
+}
+.stateBar div{
+	display:inline;
+}
+#logo{
+	position:relative;
+	left:4vw;
+}
+#greeting{
+	position:relative;
+	left:65vw;
+}
+#logout{
+	position:relative;
+	left:73vw;
+}
+#mypage{
+	position:relative;
+	left:78vw;
+}
+.postList{
+	top:20%;
+	width:100%;
+	margin-top:10%
+}
+.postList table{
+	position:relative;
+	left:10%;
+	width:80%;
+	text-align:center;
+}
+.postList table td{
+	border:1px solid black;/*경계선 설정*/
+}
+.postList a{
+	color:black;
+	text-decoration:none;
+}
+.postList a:hover{
+	text-decoration:underline;
+}
+#postListNum, #postListId, #postListVoteNum, #postListViewCount{width:6vw;}
+#postListTitle{width:15vw;}
+#postListScore{width:4vw;}
+#postListTime{width:10vw;}
+.postListUtility a{
+	color:black;
+	text-decoration:none;
+	margin:0.3vw;
+}
+.postListUtility a:hover{
+	text-decoration:underline;
+}
+.writeButton{
+	position:relative;
+	left:70%;
+}
+.writeButton a{
+	background-color:#323C73;
+	color:white;
+	border-radius:2px;
+	border:none;
+	padding:0.3vw;
+}
+.postListIndex{
+	position:relative;
+	left:35vw;
+	margin-top:2vw;
+}
+#currentListIndex{
+	background-color:black;
+	color:white;
+}
+
+/*글쓰기 페이지*/
+.writePost{
+	position:relative;
+	top:15vh;
+	width:100vw;
+	height:80vh;
+}
+.writePost table{
+	position:relative;
+	left:10%;
+	width:80vw;
+	height:60vh;
+}
+.writePost td{
+	border:1px solid black;
+	padding:1vw;	
+}
+.writePost textarea[name="inputTitle"]{
+	border:none;
+	height:5vh;
+	width:70vw;
+}
+.writePost textarea[name="inputContent"]{
+	border:none;
+	height:60vh;
+	width:70vw;
+}
+.writePost input[type='submit']{
+	position:relative;
+	left:85vw;
+	margin:1vw;
+}
+
+/*게시글 페이지*/
+	/*게시글 페이지 글내용부분*/
+.post{
+	margin-top:5%;
+}
+.post table{
+	position:relative;
+	left:10%;
+	width:80%;
+	font-size:1.5em;
+}
+.post td{
+	border:1px solid black;
+	border-collapse:collapse;
+	padding:1%;
+}
+#postContent{
+	border:none;
+	padding-bottom:15%;
+}
+#postScore{
+	border:none;
+	text-align:center;
+	font-size:0.8em;
+}
+#postScore input[type="text"]{
+	display:none;
+}
+	/*게시글 페이지 댓글부분*/
+.topComment{
+	margin:5% auto;
+	height:40%;
+}
+.topComment p{
+	position:relative;
+	left:10%;
+}
+.topComment textarea{
+	position:relative;
+	left:10%;
+	width:60%;
+	height:100px;
+	font-size:1.0em;
+}
+.topComment input[type="text"]{
+	display:none;
+}
+.topComment input[type="submit"]{
+	position:relative;
+	right:-60%;
+	width:10%;	
+	margin-top:1%;
+}
+
+/*모든 댓글보기 부분*/
+.comment{
+	
+}
+.mainComment{
+	position:relative;
+	left:10%;
+	width:60%;
+	font-size:1.2em;
+	border:none;
+	border-bottom:1px solid black;
+}
+.mainComment td{
+	padding:1%;
+}
+.mainComment .commentTime{
+	position:relative;
+	left:60%;
+}
+.mainComment .commentContent{
+	font-size:1.4em;
+	padding-bottom:1%;
+}
+.mainComment input[type="text"]{
+	display:none;
+}
+.innerComment input[type="text"]{
+	display:none;
+}
+.comment form[action="writeCommentH"]{
+	display:none;
+}
+.comment input[type="text"]{
+	display:none;
+}
+.writeInnerComment{
+	display:inline;
+}
+.writeInnerComment button{
+	position:relative;
+	left:55%;
+	margin:0.3vw;
+	background-color:#323C73;
+	color:white;
+	border-radius:2px;
+	border:none;
+	padding:0.5vw;
+}
+.writeInnerComment textarea{
+	position:relative;
+	left:10%;
+	width:60%;
+	height:10%;
+	margin-top:3%;
+}
+.writeInnerComment input[type="submit"]{
+	position:relative;
+	left:65%;	
+	margin:1%;
+}
+.showInnerComment{
+	margin:0.3vw;
+	background-color:#323C73;
+	color:white;
+	border-radius:2px;
+	border:none;
+	padding:0.5vw;
+}
+
+	/*덧글보기 부분*/
+.writeInnerComment ~ button{
+	position:relative;
+	left:55%;
+}
+.innerCommentSection{
+	display:none;
+}
+.innerComment{
+	position:relative;
+	left:20%;
+	margin:1%;
+	width:50%;
+	border:none;
+	border-bottom:1px solid black;
+}
+.innerComment td{
+	padding:1%;
+}
+.innerComment .commentTime{
+	position:relative;
+	left:60%;
+}
+.innerComment .commentContent{
+	font-size:1.4em;
+	padding-bottom:1%;
+}
+
+table{
+	border: 1px solid black;
+	border-collapse:collapse;
+}

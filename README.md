@@ -2,7 +2,7 @@
 
 게시판.
 
-사용기술 : java, Serlvet, JSP, jdbc, apache tomcat
+사용기술 : java, Serlvet, JSP, mysql, apache tomcat
 
 mvc패턴을 적용하여 게시판을 만들었다. 
 

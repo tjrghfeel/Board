@@ -60,15 +60,15 @@ body{
 }
 #greeting{
 	position:relative;
-	left:65vw;
+	left:55vw;
 }
 #logout{
 	position:relative;
-	left:73vw;
+	left:63vw;
 }
-#mypage{
+#myPage{
 	position:relative;
-	left:78vw;
+	left:68vw;
 }
 .postList{
 	top:20%;
@@ -185,6 +185,14 @@ body{
 #postScore input[type="text"]{
 	display:none;
 }
+.deletePost{
+	position:relative;
+	left:70%;
+}
+.deletePost input[type="text"]{
+	display:none;
+}
+
 	/*게시글 페이지 댓글부분*/
 .topComment{
 	margin:5% auto;
@@ -308,7 +316,36 @@ body{
 	padding-bottom:1%;
 }
 
+/* 마이페이지 부분 */
+.myInfo{
+	position:relative;
+	left:10vw;
+}
+.myInfo input[name="accountNum"]{
+	display:none;
+}
+.myPost{
+	position:relative;
+	left:10vw;
+	
+}
+.myPost table{
+	width:80vw;
+}
+.myComment{
+	position:relative;
+	left:10vw;
+
+}
+.myComment table{
+	width:80vw;
+}
+.myComment input[name="commentNum"]{
+	display:none;
+}
+
 table{
 	border: 1px solid black;
 	border-collapse:collapse;
 }
+

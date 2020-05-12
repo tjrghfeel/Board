@@ -8,27 +8,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="boardCss.css?ver=111"/>
+		<link rel="stylesheet" type="text/css" href="boardCss.css?ver=2211"/>
 	</head>
 	<body>
 		<!-- 맨위 로그아웃, 내정보 부분? -->
 		<div class="stateBar">
-			<a id="logo" href="board.jsp">로고</a>
-			<div id="greeting">${sessionScope.memberName }님 환영합니다~!</div>
+			<a id="logo" href="showingBoardH?inputListIndex=1">로고</a>
+			<div id="greeting">${sessionScope.loginedMember.name }님 환영합니다~!</div>
 			<div>
 				<a href="logoutH" id="logout">로그아웃</a>
-				<a href="myPageH" id="mypage">My Page</a>
+				<a href="showingMyPageH" id="myPage">My Page</a>
 			</div>
 		</div>
 		
 		<%--게시글 내용 보여주는 부분 --%>
 		<div class="post">
 			<table>
-				<tr><td colspan="3">제목 : ${sessionScope.post.title }</td></tr>
+				<tr><td colspan="4">제목 : ${sessionScope.post.title }</td></tr>
 				<tr>
 					<td>id : ${sessionScope.post.id }</td>
 					<td>score : ${sessionScope.post.score }</td>
 					<td>time : ${sessionScope.post.time }</td>
+					<td>view : ${sessionScope.post.viewCount }</td>
 				</tr>
 				<tr>
 					<td id="postContent" colspan="3">${sessionScope.post.content }</td>
@@ -49,6 +50,16 @@
 			</table>
 		</div>
 		
+		<!-- 글 지우기. 현재 글의 작성자가 현재 로그인해있는 회원과 동일하다면 보이는 부분.  -->
+		<c:if test="${sessionScope.loginedMember.id == sessionScope.post.id }">
+			<div class="deletePost">
+				<form action="deletePostH" method="POST">
+					<input type="text" name="postNum" value="${sessionScope.post.num }">
+					<input type="submit" value="글 지우기">
+				</form>
+			</div>
+		</c:if>
+		
 		<%--댓글쓰는 부분. 처음엔 안보이게 해두었다가 버튼누르면 작성폼이 보이도록. --%>
 		<div class="topComment">
 			<p>댓글쓰기</p>
@@ -61,77 +72,80 @@
 		
 		<%--댓글 보여주는 부분 --%>
 		<div class="comment">
-			<%--'댓글' 목록 뿌려주는 부분. --%>
-			<c:forEach var="item" varStatus = "st" items="${sessionScope.commentList }">
-				<table class="mainComment">
-					<tr>
-						<td>id : ${item[0].id }</td>
-						<td class="commentTime">${item[0].time }</td>
-					</tr>
-					<tr><td class="commentContent">${item[0].content }<td></tr>
-					<tr>
-						<td>
-							score : ${item[0].score }
-						</td>
-						<td>voteNum : ${item[0].voteNum }</td>
-						<td>
-							<form action="scoreH" method="GET">
-								<label><input type="radio" name="commentScore" value="1">1점</label>
-								<label><input type="radio" name="commentScore" value="2">2점</label>
-								<label><input type="radio" name="commentScore" value="3">3점</label>
-								<label><input type="radio" name="commentScore" value="4">4점</label>
-								<label><input type="radio" name="commentScore" value="5">5점</label>
-								<input type="text" name="postNum" value="${item[0].postNum }">
-								<input type="text" name="commentNum" value="${item[0].commentNum }">
-								<input type="submit" value="점수주기">
-							</form>
-						</td>
-					</tr>
-				</table>
-				<div class="writeInnerComment">
-					<button type="button">덧글달기</button><%--이버튼을 누르면 덧글다는 폼이 보이도록. --%>
-					<form action="writeCommentH" method="POST">
-						<input type="text" name="commentNum" value="${item[0].commentNum }">
-						<textarea name="commentContent"></textarea><br>
-						<input type="text" name="postNum" style="display:none" value="${sessionScope.post.num }">
-						<input type="submit" value="덧글달기">
-					</form>
-				</div>
-				<button type="button" class="showInnerComment">덧글 보기</button><%--이버튼 누르면 해당 댓글의 덧글을 볼 수 있도록 --%>
-				
-				<%--'덧글' 목록 뿌려주는 부분. --%>
-				<div class="innerCommentSection">
-					<c:if test="${item[1] != null }">
-						<c:forEach var="innerItem" items="${item }" begin="1">
-							<table class="innerComment">
-								<tr>
-									<td>id : ${innerItem.id }</td>
-									<td class="commentTime">${innerItem.time }</td>
-								</tr>
-								<tr><td class="commentContent">${innerItem.content }</td></tr>
-								<tr>
-									<td>
-										score : ${innerItem.score }
-									</td>
-									<td>voteNum : ${innerItem.voteNum }</td>
-									<td>
-										<form action="scoreH" method="GET">
-											<label><input type="radio" name="commentScore" value="1">1점</label>
-											<label><input type="radio" name="commentScore" value="2">2점</label>
-											<label><input type="radio" name="commentScore" value="3">3점</label>
-											<label><input type="radio" name="commentScore" value="4">4점</label>
-											<label><input type="radio" name="commentScore" value="5">5점</label>
-											<input type="text" name="postNum" value="${innerItem.postNum }">
-											<input type="text" name="commentNum" value="${innerItem.commentNum }">
-											<input type="submit" value="점수주기">
-										</form>
-									</td>
-								</tr>
-							</table>
-						</c:forEach>
-					</c:if>	
-				</div>
-			</c:forEach>
+			<c:if test="${sessionScope.commentList !=null }">
+				<%--'댓글' 목록 뿌려주는 부분. --%>
+				<c:forEach var="item" varStatus = "st" items="${sessionScope.commentList }">
+					<table class="mainComment">
+						<tr>
+							<td>id : ${item[0].id }</td>
+							<td class="commentTime">${item[0].time }</td>
+						</tr>
+						<tr><td class="commentContent">${item[0].content }<td></tr>
+						<tr>
+							<td>
+								score : ${item[0].score }
+							</td>
+							<td>voteNum : ${item[0].voteNum }</td>
+							<td>
+								<form action="scoreH" method="GET">
+									<label><input type="radio" name="commentScore" value="1">1점</label>
+									<label><input type="radio" name="commentScore" value="2">2점</label>
+									<label><input type="radio" name="commentScore" value="3">3점</label>
+									<label><input type="radio" name="commentScore" value="4">4점</label>
+									<label><input type="radio" name="commentScore" value="5">5점</label>
+									<input type="text" name="postNum" value="${item[0].postNum }">
+									<input type="text" name="commentNum" value="${item[0].commentNum }">
+									<input type="submit" value="점수주기">
+								</form>
+							</td>
+						</tr>
+					</table>
+					<div class="writeInnerComment">
+						<button type="button">덧글달기</button><%--이버튼을 누르면 덧글다는 폼이 보이도록. --%>
+						<form action="writeCommentH" method="POST">
+							<input type="text" name="commentNum" value="${item[0].commentNum }">
+							<textarea name="commentContent"></textarea><br>
+							<input type="text" name="postNum" style="display:none" value="${sessionScope.post.num }">
+							<input type="submit" value="덧글달기">
+						</form>
+					</div>
+					<button type="button" class="showInnerComment">덧글 보기</button><%--이버튼 누르면 해당 댓글의 덧글을 볼 수 있도록 --%>
+					
+					<%--'덧글' 목록 뿌려주는 부분. --%>
+					<div class="innerCommentSection">
+						<c:if test="${item[1] != null }">
+							<c:forEach var="innerItem" items="${item }" begin="1">
+								<table class="innerComment">
+									<tr>
+										<td>id : ${innerItem.id }</td>
+										<td class="commentTime">${innerItem.time }</td>
+									</tr>
+									<tr><td class="commentContent">${innerItem.content }</td></tr>
+									<tr>
+										<td>
+											score : ${innerItem.score }
+										</td>
+										<td>voteNum : ${innerItem.voteNum }</td>
+										<td>
+											<form action="scoreH" method="GET">
+												<label><input type="radio" name="commentScore" value="1">1점</label>
+												<label><input type="radio" name="commentScore" value="2">2점</label>
+												<label><input type="radio" name="commentScore" value="3">3점</label>
+												<label><input type="radio" name="commentScore" value="4">4점</label>
+												<label><input type="radio" name="commentScore" value="5">5점</label>
+												<input type="text" name="postNum" value="${innerItem.postNum }">
+												<input type="text" name="commentNum" value="${innerItem.commentNum }">
+												<input type="submit" value="점수주기">
+											</form>
+										</td>
+									</tr>
+								</table>
+							</c:forEach>
+						</c:if>	
+					</div>
+				</c:forEach>
+			</c:if>
+			
 		</div>
 		
 		<script src="http://code.jquery.com/jquery-latest.js"></script>		

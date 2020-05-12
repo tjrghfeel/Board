@@ -2,7 +2,7 @@
 <web-app>
 	<servlet>
 		<servlet-name>noName</servlet-name>
-		<servlet-class>board.NoName</servlet-class>
+		<servlet-class>Controller.NoName</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>noName</servlet-name>
@@ -10,7 +10,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>noName2</servlet-name>
-		<servlet-class>board.NoName2</servlet-class>
+		<servlet-class>Controller.NoName2</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>noName2</servlet-name>
@@ -20,7 +20,7 @@
 	
 	<servlet>
 		<servlet-name>signUpH</servlet-name>
-		<servlet-class>board.SignUpH</servlet-class>
+		<servlet-class>Controller.SignUpH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>signUpH</servlet-name>
@@ -29,7 +29,7 @@
 	
 	<servlet>
 		<servlet-name>loginH</servlet-name>
-		<servlet-class>board.LoginH</servlet-class>
+		<servlet-class>Controller.LoginH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginH</servlet-name>
@@ -37,8 +37,35 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>logoutH</servlet-name>
+		<servlet-class>Controller.LogoutH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logoutH</servlet-name>
+		<url-pattern>/logoutH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>showingMyPageH</servlet-name>
+		<servlet-class>Controller.ShowingMyPageH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>showingMyPageH</servlet-name>
+		<url-pattern>/showingMyPageH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateMyInfoH</servlet-name>
+		<servlet-class>Controller.UpdateMyInfoH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateMyInfoH</servlet-name>
+		<url-pattern>/updateMyInfoH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>showingBoardH</servlet-name>
-		<servlet-class>board.ShowingBoardH</servlet-class>
+		<servlet-class>Controller.ShowingBoardH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>showingBoardH</servlet-name>
@@ -47,7 +74,7 @@
 	
 	<servlet>
 		<servlet-name>writePostH</servlet-name>
-		<servlet-class>board.WritePostH</servlet-class>
+		<servlet-class>Controller.WritePostH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>writePostH</servlet-name>
@@ -55,8 +82,26 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>deletePostH</servlet-name>
+		<servlet-class>Controller.DeletePostH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletePostH</servlet-name>
+		<url-pattern>/deletePostH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deleteCommentH</servlet-name>
+		<servlet-class>Controller.DeleteCommentH</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteCommentH</servlet-name>
+		<url-pattern>/deleteCommentH</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>showingPostH</servlet-name>
-		<servlet-class>board.ShowingPostH</servlet-class>
+		<servlet-class>Controller.ShowingPostH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>showingPostH</servlet-name>
@@ -65,7 +110,7 @@
 	
 	<servlet>
 		<servlet-name>writeCommentH</servlet-name>
-		<servlet-class>board.WriteCommentH</servlet-class>
+		<servlet-class>Controller.WriteCommentH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>writeCommentH</servlet-name>
@@ -74,7 +119,7 @@
 	
 	<servlet>
 		<servlet-name>scoreH</servlet-name>
-		<servlet-class>board.ScoreH</servlet-class>
+		<servlet-class>Controller.ScoreH</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>scoreH</servlet-name>

@@ -8,16 +8,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>main board</title>
-		<link rel="stylesheet" type="text/css" href="boardCss.css"/>
+		<link rel="stylesheet" type="text/css" href="boardCss.css?ver=111"/>
 	</head>
 	<body>
 		<!-- 맨위 로그아웃, 내정보 부분? -->
 		<div class="stateBar">
 			<a id="logo" href="board.jsp">로고</a>
-			<div id="greeting">${sessionScope.memberName }님 환영합니다~!</div>
+			<div id="greeting">${sessionScope.loginedMember.name }님 환영합니다~!</div>
 			<div>
 				<a href="logoutH" id="logout">로그아웃</a>
-				<a href="myPageH" id="mypage">My Page</a>
+				<a href="showingMyPageH" id="myPage">My Page</a>
 			</div>
 		</div>
 		
@@ -36,13 +36,13 @@
 				<c:if test="${sessionScope.postCount >0}">
 					<c:forEach var="i" varStatus="a" begin="0" end="${sessionScope.postCount -1}" step="1">
 						<tr>
-							<td>${sessionScope.postNum[i] }</td>
-							<td><a href="showingPostH?postNum=${sessionScope.postNum[i] }">${sessionScope.postTitle[i] }</a></td>
-							<td>${sessionScope.postId[i] }</td>
-							<td>${sessionScope.postScore[i] }</td>
-							<td>${sessionScope.postVoteNum[i] }</td>
-							<td>${sessionScope.postViewCount[i] }</td>
-							<td>${sessionScope.postTime[i] }</td>
+							<td>${sessionScope.postList[i].num }</td>
+							<td><a href="showingPostH?postNum=${sessionScope.postList[i].num }">${sessionScope.postList[i].title }</a></td>
+							<td>${sessionScope.postList[i].id }</td>
+							<td>${sessionScope.postList[i].score }</td>
+							<td>${sessionScope.postList[i].voteNum }</td>
+							<td>${sessionScope.postList[i].viewCount }</td>
+							<td>${sessionScope.postList[i].time }</td>
 						</tr>
 					</c:forEach>
 				</c:if>

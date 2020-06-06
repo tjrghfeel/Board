@@ -2,6 +2,7 @@
 
 <ul>
   <li>게시판 </li>
+  <li>링크 : http://49.50.163.173/login.html</li>
   <li>사용 기술 : java, Serlvet, JSP, mysql, apache tomcat, Ecplipse EE </li>
   <li>기능
     <ul>

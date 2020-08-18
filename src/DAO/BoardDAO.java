@@ -19,7 +19,7 @@ public class BoardDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost/sample?"
-					+ "characterEncoding=UTF-8&serverTimezone=UTC", "root", "**2TJRGHmysql");
+					+ "characterEncoding=UTF-8&serverTimezone=UTC", "aaa", "aaa");
 			
             st = connection.createStatement();
             query = "select * from account where id=\'"+id+"\' and pw = \'"+pw+"\'";
